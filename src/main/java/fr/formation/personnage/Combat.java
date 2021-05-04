@@ -53,11 +53,11 @@ public class Combat {
 		boolean actionRealisable=false;
 		boolean ciblePossible = false;
 		
-		//tant que l'action n'est pas réalisable 
+		//tant que l'action n'est pas rï¿½alisable 
 		while(actionRealisable!=true) {
 			
 			//je demande quelle action veut il effectuer
-			System.out.println("Quelle action "+p.getName()+" doit il réaliser ?");
+			System.out.println("Quelle action "+p.getName()+" doit il rï¿½aliser ?");
 			System.out.println("Pour attaquer tapez 1");
 			System.out.println("Pour soigner tapez 2");
 			System.out.println("Pour passez votre tour tapez 3");
@@ -82,11 +82,11 @@ public class Combat {
 					result = sc.nextInt();
 					action=result;
 					
-					//je verifie si le resultat est inferieur à la taille de l'equipe
+					//je verifie si le resultat est inferieur ï¿½ la taille de l'equipe
 					if(result<B.getEquipe().size()) {
 						cible=result;
 						toSend[1] = cible;
-						System.out.println("Vous avez attaqué "+B.getEquipe().get(cible).getName());
+						System.out.println("Vous avez attaquï¿½ "+B.getEquipe().get(cible).getName());
 						ciblePossible = true;
 					}else {
 						System.out.println("Vous ne pouvez pas attaquer cette cible.");
@@ -102,17 +102,17 @@ public class Combat {
 					System.out.println("Pour soigner :");
 					
 					for(int i=0;i<A.getEquipe().size();i++) {
-						System.out.println(B.getEquipe().get(i).getName() + " tapez " +i);
+						System.out.println(A.getEquipe().get(i).getName() + " tapez " +i);
 						}
 					
 					result = sc.nextInt();
 					action=result;
 					
-					//je verifie si le resultat est inferieur à la taille de l'equipe
+					//je verifie si le resultat est inferieur ï¿½ la taille de l'equipe
 					if(result<A.getEquipe().size()) {
 						cible=result;
 						toSend[1] = cible;						
-						System.out.println("Vous avez soigné "+A.getEquipe().get(cible).getName());
+						System.out.println("Vous avez soignï¿½ "+A.getEquipe().get(cible).getName());
 						ciblePossible = true;
 					}else {
 						System.out.println("Vous ne pouvez pas soigner cette cible.");
@@ -121,7 +121,7 @@ public class Combat {
 					
 			} //si l'action n'existe pas
 			else {
-				System.out.println("L'action n'est pas réalisable, Rappel:  Si vous souhaitez attaquer : 1 si vous souhaitez soigner 2 :");
+				System.out.println("L'action n'est pas rï¿½alisable, Rappel:  Si vous souhaitez attaquer : 1 si vous souhaitez soigner 2 :");
 			}
 		}
 
@@ -133,7 +133,7 @@ public class Combat {
 		//	boolean actionPossible = false;
 		//	boolean cibleValide = false;
 		
-		/*	System.out.println("Quelle action "+p.getName()+" doit il réaliser ?");
+		/*	System.out.println("Quelle action "+p.getName()+" doit il rï¿½aliser ?");
 		result = sc.nextInt();
 		switch(result) {
 			case 1 : 
@@ -145,7 +145,7 @@ public class Combat {
 		
 		
 	/**	while (!actionRealisable) {
-			System.out.println("Quelle action "+p.getName()+" doit il réaliser ?");
+			System.out.println("Quelle action "+p.getName()+" doit il rï¿½aliser ?");
 			result = sc.nextInt();
 			
 			switch(result) {
