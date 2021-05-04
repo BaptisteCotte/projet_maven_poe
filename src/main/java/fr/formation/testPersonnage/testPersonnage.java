@@ -23,5 +23,6 @@ public class testPersonnage {
 		toSend = C.demander(alfred, equipeA, equipeB);
 		
 		System.out.println(toSend[0]+" "+toSend[1]);
+		System.out.println("Salut ! ");
 	}
 }
