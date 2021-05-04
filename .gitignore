@@ -5,6 +5,10 @@ bin-release/
 [Bb]in/
 
 # Other files and folders
+.project
+.classpath
+bin/
+target/
 .settings/
 
 # Executables
