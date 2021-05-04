@@ -23,15 +23,6 @@ public class testPersonnage {
 		toSend = C.demander(alfred, equipeA, equipeB);
 		
 		System.out.println(toSend[0]+" "+toSend[1]);
-<<<<<<< HEAD
 
-		System.out.println("Salut ! ");
-
-		
-		// Push test
-
-=======
-		System.out.println("Salut ! c'est encore moi ");
->>>>>>> dev
 	}
 }
