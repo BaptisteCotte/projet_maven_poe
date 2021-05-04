@@ -19,10 +19,11 @@ public class testPersonnage {
 		Combat C = new Combat(equipeA,equipeB);
 		int toSend[] = {0,0};
 		
-		
 		toSend = C.demander(alfred, equipeA, equipeB);
 		
 		System.out.println(toSend[0]+" "+toSend[1]);
+		
+		
 
 	}
 }
