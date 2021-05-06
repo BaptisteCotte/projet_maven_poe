@@ -1,4 +1,4 @@
-package fr.formation.personnage;
+package fr.formation.model;
 
 public class Personnage {
 
@@ -133,6 +133,7 @@ public class Personnage {
 	public void etreAttaque(int dmg,Personnage p) {
 		this.setHp(this.getHp()-dmg);
 		System.out.println(this.getName()+" reçois "+dmg+" points de dégats !");
+		System.out.println(this.getName()+" a "+this.getHp()+" hp");
 		if(this.getHp()<=0) {
 			this.setState(false);
 			System.out.println(this.getName()+" est mort !");

@@ -1,4 +1,4 @@
-package fr.formation.personnage;
+package fr.formation.model;
 
 public class Knight extends Personnage implements ITank {
 
@@ -29,6 +29,7 @@ public class Knight extends Personnage implements ITank {
 	public void etreAttaque(int dmg,Personnage p) {
 		this.setHp(this.getHp()-toDefend(dmg));
 		System.out.println(this.getName()+" reçois "+toDefend(dmg)+" points de dégats !");
+		System.out.println(this.getName()+" a "+this.getHp()+" hp");
 		if(this.getHp()<=0) {
 			this.setState(false);
 			System.out.println(this.getName()+" est mort !");

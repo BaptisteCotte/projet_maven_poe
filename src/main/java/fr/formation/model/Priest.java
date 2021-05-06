@@ -1,4 +1,4 @@
-package fr.formation.personnage;
+package fr.formation.model;
 
 public class Priest extends Personnage implements IHealer{
 	
@@ -42,9 +42,13 @@ public class Priest extends Personnage implements IHealer{
 	public void heal(Personnage p) {
 		if((this.getMana() >= 10) && (p.getMaxHp() > p.getHp())) {
 			p.setHp(p.getHp()+this.getBaseDmg());
+			this.setMana(this.getMana()-10);
 			if(p.getHp()>p.getMaxHp()) {
 				p.setHp(p.getMaxHp());
 			}
+			System.out.println(this.getName()+ " soigne " +p.getName()+ " de "+this.getBaseDmg()+ " hp !");
+			System.out.println(p.getName()+" a "+p.getHp()+" hp");
+			System.out.println(this.getName()+" a "+this.getMana()+" mana");
 		}
 	}
 	

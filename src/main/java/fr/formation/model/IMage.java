@@ -1,4 +1,4 @@
-package fr.formation.personnage;
+package fr.formation.model;
 
 public interface IMage {
 

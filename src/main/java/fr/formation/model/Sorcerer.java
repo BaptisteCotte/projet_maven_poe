@@ -1,4 +1,4 @@
-package fr.formation.personnage;
+package fr.formation.model;
 
 public class Sorcerer extends Personnage implements IMage {
 
@@ -34,6 +34,7 @@ public class Sorcerer extends Personnage implements IMage {
 	public int useMagic() {
 		if(this.getMana() >= 10) {
 			this.setMana(this.getMana()-10);
+			System.out.println(this.getName()+" a "+this.getMana()+" mana");
 			return(this.getLvl());
 		}
 		return 0;
