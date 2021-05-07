@@ -62,9 +62,11 @@ public void createConnection () {
 			
 			e.printStackTrace();
 			System.out.println("Can't execute the query ...");
+			return null;
+			
 		}
 		
-		return null;
+	
 	}
 	
 	
