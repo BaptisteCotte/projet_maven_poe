@@ -3,9 +3,8 @@ package fr.formation.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
-
+import java.sql.PreparedStatement;
 import fr.formation.model.Knight;
 import fr.formation.model.Race;
 
@@ -68,8 +67,21 @@ public class KnightDaoSql extends AbstractDaoSql implements IKnightDao {
 
 	@Override
 	public void add(Knight entity) {
-		// TODO Auto-generated method stub
-
+		
+		try {
+			PreparedStatement insertPersonnage = connection.prepareStatement("INSERT INTO personnage (PER_NOM,PER_AGE,PER_RACE,PER_LEVEL,PER_XP,PER_HP,PER_MAXHP,PER_BASEDMG,PER_STATE) VALUES ("+entity.getName()+","+entity.getAge()+","+entity.getRace().toString()+","+entity.getLvl()+","+entity.getXp()+","+entity.getHp()+","+entity.getMaxHp()+","+entity.getBaseDmg()+","+entity.isState()+");");
+			insertPersonnage.execute();
+			ResultSet ResultSet = this.getResult("SELECT PER_ID FROM personnage ORDER BY PER_ID DESC LIMIT 1;");
+			
+			while (ResultSet.next()) {
+				int id = ResultSet.getInt("PER_ID");
+				PreparedStatement insertKnight = connection.prepareStatement("INSERT INTO knight (KNI_PER_ID,KNI_ARMOR) VALUES ("+id+","+entity.getArmor()+")");
+				insertKnight.execute();
+			}	
+		}
+		catch (SQLException sqle) {
+			sqle.printStackTrace();
+		}
 	}
 
 	@Override

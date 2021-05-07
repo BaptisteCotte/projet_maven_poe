@@ -24,11 +24,11 @@ public class testPersonnage {
 //		System.out.println(bob);
 		
 		
-		Combat C = new Combat(equipeA,equipeB);
-		
-		C.fight();
-		
-		System.out.println(C.getEquipeA().toString());
+//		Combat C = new Combat(equipeA,equipeB);
+//		
+//		C.fight();
+//		
+//		System.out.println(C.getEquipeA().toString());
 		
 //		int toSend[] = {0,0};
 //		toSend = C.demander(bob, equipeA, equipeB);
