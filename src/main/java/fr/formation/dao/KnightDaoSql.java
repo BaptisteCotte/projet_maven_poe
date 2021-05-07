@@ -10,6 +10,7 @@ import fr.formation.model.Knight;
 import fr.formation.model.Race;
 
 
+
 public class KnightDaoSql extends AbstractDaoSql implements IKnightDao {
 
 	@Override
@@ -18,11 +19,10 @@ public class KnightDaoSql extends AbstractDaoSql implements IKnightDao {
 
 		
 		try {
-			// Selectionner tous les chevaliers
 			ResultSet ResultSet = this.getResult("SELECT * FROM personnage INNER JOIN knight ON personnage.PER_ID = knight.KNI_PER_ID;");
 
-			// On stoque les id des chevaliers
-			while (ResultSet.next()) { // Tant qu'on a un r�sultat
+			
+			while (ResultSet.next()) {
 				Knight knight = new Knight(ResultSet.getString("PER_NOM"),ResultSet.getInt("PER_AGE"),Race.valueOf(Race.class,ResultSet.getString("PER_RACE")));
 				knight.setId(ResultSet.getInt("PER_ID"));
 				knight.setLvl(ResultSet.getInt("PER_LEVEL"));
@@ -35,7 +35,7 @@ public class KnightDaoSql extends AbstractDaoSql implements IKnightDao {
 			}
 		}
 		catch (SQLException sqle) {
-			sqle.printStackTrace(); // TODO : � retirer avant mise en production ...
+			sqle.printStackTrace();
 		}	
 		// Retourner la liste
 		return knights;
@@ -43,8 +43,27 @@ public class KnightDaoSql extends AbstractDaoSql implements IKnightDao {
 
 	@Override
 	public Optional<Knight> getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			//Selectionner tous les produits
+			ResultSet ResultSet = this.getResult("SELECT * FROM personnage INNER JOIN knight ON personnage.PER_ID = knight.KNI_PER_ID WHERE PER_ID = " + id);
+			
+			//Parcours du r�sultat
+			if (ResultSet.next()) {
+				Knight knight = new Knight(ResultSet.getString("PER_NOM"),ResultSet.getInt("PER_AGE"),Race.valueOf(Race.class,ResultSet.getString("PER_RACE")));
+				knight.setId(ResultSet.getInt("PER_ID"));
+				knight.setLvl(ResultSet.getInt("PER_LEVEL"));
+				knight.setXp(ResultSet.getInt("PER_XP"));
+				knight.setHp(ResultSet.getInt("PER_HP"));
+				knight.setMaxHp(ResultSet.getInt("PER_MAXHP"));
+				knight.setBaseDmg(ResultSet.getInt("PER_BASEDMG"));
+				knight.setState(ResultSet.getBoolean("PER_STATE"));
+				return Optional.of(knight);
+			}
+		}
+		catch (SQLException sqle) {
+			sqle.printStackTrace();
+		}
+		return Optional.empty();
 	}
 
 	@Override
