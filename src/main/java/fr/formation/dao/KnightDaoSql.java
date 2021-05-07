@@ -24,13 +24,19 @@ public class KnightDaoSql extends AbstractDaoSql implements IKnightDao {
 			// On stoque les id des chevaliers
 			while (ResultSet.next()) { // Tant qu'on a un r�sultat
 				Knight knight = new Knight(ResultSet.getString("PER_NOM"),ResultSet.getInt("PER_AGE"),Race.valueOf(Race.class,ResultSet.getString("PER_RACE")));
-				
+				knight.setId(ResultSet.getInt("PER_ID"));
+				knight.setLvl(ResultSet.getInt("PER_LEVEL"));
+				knight.setXp(ResultSet.getInt("PER_XP"));
+				knight.setHp(ResultSet.getInt("PER_HP"));
+				knight.setMaxHp(ResultSet.getInt("PER_MAXHP"));
+				knight.setBaseDmg(ResultSet.getInt("PER_BASEDMG"));
+				knight.setState(ResultSet.getBoolean("PER_STATE"));
+				knights.add(knight);
 			}
 		}
 		catch (SQLException sqle) {
 			sqle.printStackTrace(); // TODO : � retirer avant mise en production ...
-		}
-		
+		}	
 		// Retourner la liste
 		return knights;
 	}
