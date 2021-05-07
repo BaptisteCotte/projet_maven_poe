@@ -69,7 +69,7 @@ public class KnightDaoSql extends AbstractDaoSql implements IKnightDao {
 	public void add(Knight entity) {
 		
 		try {
-			PreparedStatement insertPersonnage = connection.prepareStatement("INSERT INTO personnage (PER_NOM,PER_AGE,PER_RACE,PER_LEVEL,PER_XP,PER_HP,PER_MAXHP,PER_BASEDMG,PER_STATE) VALUES ("+entity.getName()+","+entity.getAge()+","+entity.getRace().toString()+","+entity.getLvl()+","+entity.getXp()+","+entity.getHp()+","+entity.getMaxHp()+","+entity.getBaseDmg()+","+entity.isState()+");");
+			PreparedStatement insertPersonnage = connection.prepareStatement("INSERT INTO personnage (PER_NOM,PER_AGE,PER_RACE,PER_LEVEL,PER_XP,PER_HP,PER_MAXHP,PER_BASEDMG,PER_STATE) VALUES (\""+entity.getName()+"\","+entity.getAge()+",\""+entity.getRace().toString()+"\","+entity.getLvl()+","+entity.getXp()+","+entity.getHp()+","+entity.getMaxHp()+","+entity.getBaseDmg()+","+entity.isState()+");");
 			insertPersonnage.execute();
 			ResultSet resultSet = this.getResult("SELECT PER_ID FROM personnage ORDER BY PER_ID DESC LIMIT 1;");
 			
@@ -88,7 +88,7 @@ public class KnightDaoSql extends AbstractDaoSql implements IKnightDao {
 	public void update(Knight entity) {
 		
 		try {
-			PreparedStatement updatePersonnage = connection.prepareStatement("UPDATE personnage SET PER_NOM = "+entity.getName()+", PER_AGE = "+entity.getAge()+", PER_RACE = "+entity.getRace().toString()+", PER_LEVEL = "+entity.getLvl()+", PER_XP = "+entity.getXp()+", PER_HP = "+entity.getHp()+", PER_MAXHP = "+entity.getMaxHp()+", PER_BASEDMG = "+entity.getBaseDmg()+", PER_STATE = "+entity.isState()+" WHERE (PER_ID = "+entity.getId()+");");
+			PreparedStatement updatePersonnage = connection.prepareStatement("UPDATE personnage SET PER_NOM = \""+entity.getName()+"\", PER_AGE = "+entity.getAge()+", PER_RACE = \""+entity.getRace().toString()+"\", PER_LEVEL = "+entity.getLvl()+", PER_XP = "+entity.getXp()+", PER_HP = "+entity.getHp()+", PER_MAXHP = "+entity.getMaxHp()+", PER_BASEDMG = "+entity.getBaseDmg()+", PER_STATE = "+entity.isState()+" WHERE (PER_ID = "+entity.getId()+");");
 			PreparedStatement updateKnight = connection.prepareStatement("UPDATE knight SET KNI_ARMOR = "+entity.getArmor()+" WHERE (KNI_PER_ID = "+entity.getId()+");");	
 			updatePersonnage.execute();
 			updateKnight.execute();
