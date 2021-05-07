@@ -1,5 +1,7 @@
 package fr.formation.dao;
 
-public interface IKnightDao {
+import fr.formation.model.Knight;
+
+public interface IKnightDao extends IDao<Knight>{
 
 }

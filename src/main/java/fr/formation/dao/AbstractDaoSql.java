@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 public abstract class AbstractDaoSql {
 	
-	private static Connection connection;
+	protected static Connection connection;
 
 
 public AbstractDaoSql() {
@@ -19,7 +19,7 @@ public AbstractDaoSql() {
 
 public void createConnection () {
 	
-	// Connexion à la bdd 
+	// Connexion ï¿½ la bdd 
 	if(connection == null) {
 		
 	try {

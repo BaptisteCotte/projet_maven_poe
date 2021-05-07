@@ -3,7 +3,7 @@ package fr.formation.model;
 public abstract class Personnage {
 
 	//Attributs
-	
+	protected int id;
 	protected String name;
 	protected int age;
 	protected Race race;
@@ -28,6 +28,13 @@ public abstract class Personnage {
 	}
 	
 	//Accesseurs
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	public String getName() {
 		return name;
