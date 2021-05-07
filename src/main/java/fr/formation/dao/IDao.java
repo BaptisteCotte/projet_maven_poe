@@ -2,7 +2,7 @@ package fr.formation.dao;
 
 import java.util.ArrayList;
 import java.util.Optional;
-import fr.formation.model.Personnage;
+
 
 public interface IDao<T> {
 	
