@@ -1,6 +1,6 @@
 package fr.formation.model;
 
-public class Personnage {
+public abstract class Personnage {
 
 	//Attributs
 	

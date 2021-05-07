@@ -8,7 +8,7 @@ public class Combat {
 	// Attributs
 	protected Equipe EquipeA;
 	protected Equipe EquipeB;
-	protected ArrayList<Personnage> deads;
+	protected ArrayList<Personnage> deads = new ArrayList<>();
 
 	// Constructeur
 	public Combat(Equipe A, Equipe B) {
