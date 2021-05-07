@@ -50,6 +50,8 @@ public void createConnection () {
 	
 }
 	
+}
+	
 	public ResultSet getResult(String query){
 		
 		try {
