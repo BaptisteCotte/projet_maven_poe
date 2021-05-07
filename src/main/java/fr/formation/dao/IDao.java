@@ -1,5 +1,13 @@
 package fr.formation.dao;
 
-public interface IDao {
+import java.util.ArrayList;
+import java.util.Optional;
+import fr.formation.model.Personnage;
 
+public interface IDao<T> {
+	
+	public ArrayList<T> get();
+	public Optional<T> getById(int id);
+	public void add(T entity);
+	public void update(T entity);
 }

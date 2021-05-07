@@ -1,5 +1,5 @@
 package fr.formation.model;
-
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -8,6 +8,7 @@ public class Combat {
 	// Attributs
 	protected Equipe EquipeA;
 	protected Equipe EquipeB;
+	protected ArrayList<Personnage> deads;
 
 	// Constructeur
 	public Combat(Equipe A, Equipe B) {
@@ -30,6 +31,14 @@ public class Combat {
 
 	public void setEquipeB(Equipe equipeB) {
 		EquipeB = equipeB;
+	}
+	
+	public ArrayList<Personnage> getDeads() {
+		return this.deads;
+	}
+
+	public void addDead(Personnage p) {
+		this.deads.add(p);
 	}
 
 	// Methodes
@@ -170,6 +179,7 @@ public class Combat {
 			if (demande[0] == 1) {
 				p.attaquer(defenseur.getEquipe().get(demande[1]));
 				if(!defenseur.getEquipe().get(demande[1]).state) {
+					this.addDead(defenseur.getEquipe().get(demande[1]));
 					defenseur.getEquipe().remove(demande[1]);
 				}
 			} else if (demande[0] == 2) {

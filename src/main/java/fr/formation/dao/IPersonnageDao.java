@@ -1,5 +1,9 @@
 package fr.formation.dao;
 
-public interface IPersonnageDao {
+import fr.formation.model.Personnage;
 
+
+public interface IPersonnageDao extends IDao<Personnage> {
+	
+	
 }
