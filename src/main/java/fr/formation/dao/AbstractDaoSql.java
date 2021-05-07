@@ -2,7 +2,9 @@ package fr.formation.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public abstract class AbstractDaoSql {
 	
@@ -48,9 +50,23 @@ public void createConnection () {
 	
 }
 	
-}
+	public ResultSet getResult(String query){
+		
+		try {
+			
+			Statement stmt = connection.createStatement();
+			
+			return stmt.executeQuery(query);
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			System.out.println("Can't execute the query ...");
+		}
+		
+		return null;
+	}
 	
-
 	
 
 }
