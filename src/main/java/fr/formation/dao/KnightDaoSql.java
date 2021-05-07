@@ -75,6 +75,7 @@ public class KnightDaoSql extends AbstractDaoSql implements IKnightDao {
 			
 			while (resultSet.next()) {
 				int id = resultSet.getInt("PER_ID");
+				entity.setId(id);
 				PreparedStatement insertKnight = connection.prepareStatement("INSERT INTO knight (KNI_PER_ID,KNI_ARMOR) VALUES ("+id+","+entity.getArmor()+")");
 				insertKnight.execute();
 			}	
