@@ -1,5 +1,7 @@
 package fr.formation.model;
 
+
+
 public class Knight extends Personnage implements ITank {
 
 	//Attributs

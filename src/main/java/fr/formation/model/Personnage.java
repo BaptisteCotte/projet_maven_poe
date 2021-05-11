@@ -1,18 +1,46 @@
 package fr.formation.model;
 
+import javax.persistence.*;
+import javax.validation.constraints.*;
+
+
+@Entity
+@Table(name = "personnage")
 public abstract class Personnage {
 
 	//Attributs
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "PER_ID")
 	protected int id;
+	@Column(name = "PER_NOM", length = 50, nullable = false)
+	@NotBlank
+	@Size(max = 50)
 	protected String name;
+	@Column(name = "PER_AGE", nullable = false)
+	@NotNull
 	protected int age;
-	protected Race race;
-	protected int lvl;
-	protected int xp;
-	protected int hp;
-	protected int maxHp;
-	protected int baseDmg;
-	protected boolean state;
+	@Column(name = "PER_RACE")
+	@Enumerated(EnumType.STRING)
+	protected Race race = Race.HUMAN;
+	@Column(name = "PER_LEVEL", nullable = false)
+	@NotNull
+	protected int lvl = 1;
+	@Column(name = "PER_XP", nullable = false)
+	@NotNull
+	protected int xp = 0;
+	@Column(name = "PER_HP", nullable = false)
+	@NotNull
+	protected int hp = 100;
+	@Column(name = "PER_MAXHP", nullable = false)
+	@NotNull
+	protected int maxHp = 100;
+	@Column(name = "PER_BASEDMG", nullable = false)
+	@NotNull
+	protected int baseDmg = 10;
+	@Column(name = "PER_STATE", nullable = false)
+	@NotNull
+	protected boolean state = true;
 	
 	//Constructeur
 	protected Personnage(String name,int age,Race race) {
