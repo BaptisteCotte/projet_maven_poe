@@ -1,11 +1,31 @@
 package fr.formation.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name = "priest")
+@PrimaryKeyJoinColumn(name = "PRI_PER_ID",referencedColumnName = "PER_ID")
 public class Priest extends Personnage implements IHealer{
 	
 	//Attributs
-		protected int mana;
-		protected int maxMana;
+		@Column(name = "PRI_MANA", nullable = false)
+		@NotNull
+		protected int mana = 100;
+		@Column(name = "PRI_MAXMANA", nullable = false)
+		@NotNull
+		protected int maxMana = 100;
 		
+		
+	
+
+	public Priest() {
+			super();
+		}
+
 	//Constructeur
 	public Priest(String name, int age, Race race) {
 		super(name, age, race);
