@@ -1,10 +1,24 @@
 package fr.formation.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name="sorcerer")
+@PrimaryKeyJoinColumn(name="SOR_PER_ID", referencedColumnName = "PER_ID")
 public class Sorcerer extends Personnage implements IMage {
 
 	//Attributs
-	protected int mana;
-	protected int maxMana;
+	@Column(name="SOR_MANA", nullable = false)
+	@NotNull
+	protected int mana = 100;
+	
+	@Column(name="SOR_MAXMANA", nullable = false)
+	@NotNull
+	protected int maxMana = 100;
 	
 	//Constructeur
 	public Sorcerer(String name,int age,Race race) {
