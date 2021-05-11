@@ -20,6 +20,8 @@ public class Knight extends Personnage implements ITank {
 		this.armor = 1;
 	}
 	
+	public Knight() {}
+	
 	//Accesseurs
 	public int getArmor() {
 		return armor;

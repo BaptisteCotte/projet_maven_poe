@@ -56,6 +56,11 @@ public abstract class Personnage {
 		this.state = true;
 	}
 	
+	public Personnage() {
+		this.name = "Bob";
+		this.age = 18;
+	}
+	
 	//Accesseurs
 	
 	public int getId() {
