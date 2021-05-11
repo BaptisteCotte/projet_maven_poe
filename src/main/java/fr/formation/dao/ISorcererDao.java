@@ -1,5 +1,7 @@
 package fr.formation.dao;
 
-public interface ISorcererDao {
+import fr.formation.model.Sorcerer;
+
+public interface ISorcererDao extends IDao <Sorcerer>{
 
 }
