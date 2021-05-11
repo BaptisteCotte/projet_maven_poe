@@ -1,11 +1,18 @@
 package fr.formation.model;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 
+@Entity
+@Table(name = "knight")
+@PrimaryKeyJoinColumn(name = "KNI_PER_ID",referencedColumnName = "PER_ID")
 public class Knight extends Personnage implements ITank {
 
 	//Attributs
-	protected int armor;
+	@Column(name = "KNI_ARMOR", nullable = false)
+	@NotNull
+	protected int armor = 1;
 	
 	//Constructeur
 	public Knight(String name,int age,Race race) {

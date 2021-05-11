@@ -6,6 +6,7 @@ import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "personnage")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Personnage {
 
 	//Attributs
