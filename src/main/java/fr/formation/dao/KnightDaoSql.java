@@ -78,10 +78,9 @@ public class KnightDaoSql extends AbstractDaoSql implements IKnightDao {
 				entity.setId(id);
 				PreparedStatement insertKnight = connection.prepareStatement("INSERT INTO knight (KNI_PER_ID,KNI_ARMOR) VALUES ("+id+","+entity.getArmor()+")");
 				insertKnight.execute();
-			}
+			}	
 			
 			return entity;
-
 		}
 		catch (SQLException sqle) {
 			sqle.printStackTrace();
@@ -105,6 +104,14 @@ public class KnightDaoSql extends AbstractDaoSql implements IKnightDao {
 			return null;
 		}
 		
+	
+
+	}
+
+	@Override
+	public boolean deleteById(int id) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

@@ -1,5 +1,7 @@
 package fr.formation.model;
 
+import java.lang.reflect.Constructor;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -10,6 +12,11 @@ import javax.validation.constraints.NotNull;
 @Table(name = "sorcerer")
 @PrimaryKeyJoinColumn(name = "SOR_PER_ID", referencedColumnName = "PER_ID")
 public class Sorcerer extends Personnage implements IMage {
+	
+	public Sorcerer()  {
+		
+		
+	}
 
 	// Attributs
 	@Column(name = "SOR_MANA", nullable = false)

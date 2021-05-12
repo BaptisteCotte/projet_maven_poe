@@ -125,6 +125,7 @@ public class SorcererDaoSql extends AbstractDaoSql implements ISorcererDao {
 
 			sqle.printStackTrace();
 			return null;
+
 		}
 
 	}
@@ -227,6 +228,12 @@ public class SorcererDaoSql extends AbstractDaoSql implements ISorcererDao {
 
 		}
 
+	}
+
+	@Override
+	public boolean deleteById(int id) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

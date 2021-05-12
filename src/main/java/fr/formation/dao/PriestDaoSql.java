@@ -136,6 +136,7 @@ public class PriestDaoSql extends AbstractDaoSql implements IPriestDao {
 			return null;
 		}
 		
+		return priest;
 	}
 
 	@Override
@@ -175,8 +176,15 @@ public class PriestDaoSql extends AbstractDaoSql implements IPriestDao {
 			return null;
 		}
 		
+		return priest;
 
 
+	}
+
+	@Override
+	public boolean deleteById(int id) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

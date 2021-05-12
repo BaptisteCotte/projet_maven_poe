@@ -1,16 +1,15 @@
 package fr.formation.java;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import fr.formation.dao.KnightDaoHibernate;
-import fr.formation.model.Knight;
+import fr.formation.dao.SorcererDaoHibernate;
 import fr.formation.model.Personnage;
 import fr.formation.model.Race;
+import fr.formation.model.Sorcerer;
 
 public class Application {
 
@@ -21,9 +20,16 @@ public class Application {
 		// R�cup�rer un EntityManager
 		EntityManager em = emf.createEntityManager();
 
-		KnightDaoHibernate kdh = new KnightDaoHibernate();
-		List<Knight> listKnight = kdh.findAll();
-		System.out.println(listKnight);
+		SorcererDaoHibernate sdh = new SorcererDaoHibernate();
+
+		Personnage kevin = new Sorcerer();
+		
+		kevin = sdh.findById(21).get();
+		
+		kevin.setAge(60);
+		
+		sdh.update((Sorcerer)kevin);
+		
 
 	}
 
