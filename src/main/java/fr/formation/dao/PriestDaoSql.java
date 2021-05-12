@@ -12,7 +12,7 @@ import fr.formation.model.Race;
 public class PriestDaoSql extends AbstractDaoSql implements IPriestDao {
 
 	@Override
-	public ArrayList<Priest> getAll() {
+	public ArrayList<Priest> findAll() {
 		ArrayList<Priest> priests = new ArrayList<>();
 		try {
 			ResultSet priestRs = this.getResult("SELECT * FROM priest INNER JOIN personnage on PRI_PER_ID = PER_ID");
@@ -58,12 +58,12 @@ public class PriestDaoSql extends AbstractDaoSql implements IPriestDao {
 	}
 
 	@Override
-	public Optional<Priest> getById(int id) {
+	public Optional<Priest> findById(int id) {
 		// TODO Auto-generated method stub
 		try {
 			ResultSet priestRs = this.getResult(
 					"SELECT * FROM priest INNER JOIN personnage on PRI_PER_ID = PER_ID WHERE PRI_PER_ID = " + id);
-			if (priestRs.next()) { // Si on a un résultat
+			if (priestRs.next()) { // Si on a un rï¿½sultat
 
 				int mana = priestRs.getInt("PRI_MANA");
 				int maxMana = priestRs.getInt("PRI_MAXMANA");
@@ -101,7 +101,7 @@ public class PriestDaoSql extends AbstractDaoSql implements IPriestDao {
 	}
 
 	@Override
-	public void update(Priest priest) {
+	public Priest update(Priest priest) {
 		try {
 			String queryPersonnage = "UPDATE personnage SET PER_ID = " + priest.getId()  
 					+ ", PER_NOM = \"" + priest.getName() + "\","
@@ -127,14 +127,19 @@ public class PriestDaoSql extends AbstractDaoSql implements IPriestDao {
 
 			PreparedStatement priestStatement = connection.prepareStatement(queryPersonnage);
 			priestStatement.execute();
+			
+			return priest;
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return null;
 		}
+		
 	}
 
 	@Override
-	public void add(Priest priest) {
+	public Priest add(Priest priest) {
 		try {
 			PreparedStatement persoStatement = connection.prepareStatement(
 					"INSERT INTO personnage (PER_NOM,PER_AGE,PER_RACE,PER_LEVEL,PER_XP,PER_HP,PER_MAXHP,PER_BASEDMG,PER_STATE) "
@@ -161,10 +166,16 @@ public class PriestDaoSql extends AbstractDaoSql implements IPriestDao {
 				priestStatement.execute();
 			}
 			
+			return priest;
+
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return null;
 		}
+		
+
 
 	}
 

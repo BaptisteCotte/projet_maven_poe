@@ -13,7 +13,7 @@ import fr.formation.model.Race;
 public class KnightDaoSql extends AbstractDaoSql implements IKnightDao {
 
 	@Override
-	public ArrayList<Knight> getAll() {
+	public ArrayList<Knight> findAll() {
 		ArrayList<Knight> knights = new ArrayList<>();
 
 		
@@ -41,7 +41,7 @@ public class KnightDaoSql extends AbstractDaoSql implements IKnightDao {
 	}
 
 	@Override
-	public Optional<Knight> getById(int id) {
+	public Optional<Knight> findById(int id) {
 		try {
 			//Selectionner tous les produits
 			ResultSet resultSet = this.getResult("SELECT * FROM personnage INNER JOIN knight ON personnage.PER_ID = knight.KNI_PER_ID WHERE PER_ID = " + id);
@@ -66,7 +66,7 @@ public class KnightDaoSql extends AbstractDaoSql implements IKnightDao {
 	}
 
 	@Override
-	public void add(Knight entity) {
+	public Knight add(Knight entity) {
 		
 		try {
 			PreparedStatement insertPersonnage = connection.prepareStatement("INSERT INTO personnage (PER_NOM,PER_AGE,PER_RACE,PER_LEVEL,PER_XP,PER_HP,PER_MAXHP,PER_BASEDMG,PER_STATE) VALUES (\""+entity.getName()+"\","+entity.getAge()+",\""+entity.getRace().toString()+"\","+entity.getLvl()+","+entity.getXp()+","+entity.getHp()+","+entity.getMaxHp()+","+entity.getBaseDmg()+","+entity.isState()+");");
@@ -78,26 +78,33 @@ public class KnightDaoSql extends AbstractDaoSql implements IKnightDao {
 				entity.setId(id);
 				PreparedStatement insertKnight = connection.prepareStatement("INSERT INTO knight (KNI_PER_ID,KNI_ARMOR) VALUES ("+id+","+entity.getArmor()+")");
 				insertKnight.execute();
-			}	
+			}
+			
+			return entity;
+
 		}
 		catch (SQLException sqle) {
 			sqle.printStackTrace();
+			return null;
 		}
+		
 	}
 
 	@Override
-	public void update(Knight entity) {
+	public Knight update(Knight entity) {
 		
 		try {
 			PreparedStatement updatePersonnage = connection.prepareStatement("UPDATE personnage SET PER_NOM = \""+entity.getName()+"\", PER_AGE = "+entity.getAge()+", PER_RACE = \""+entity.getRace().toString()+"\", PER_LEVEL = "+entity.getLvl()+", PER_XP = "+entity.getXp()+", PER_HP = "+entity.getHp()+", PER_MAXHP = "+entity.getMaxHp()+", PER_BASEDMG = "+entity.getBaseDmg()+", PER_STATE = "+entity.isState()+" WHERE (PER_ID = "+entity.getId()+");");
 			PreparedStatement updateKnight = connection.prepareStatement("UPDATE knight SET KNI_ARMOR = "+entity.getArmor()+" WHERE (KNI_PER_ID = "+entity.getId()+");");	
 			updatePersonnage.execute();
 			updateKnight.execute();
+			return entity;
 		}
 		catch (SQLException sqle) {
 			sqle.printStackTrace();
+			return null;
 		}
-
+		
 	}
 
 }

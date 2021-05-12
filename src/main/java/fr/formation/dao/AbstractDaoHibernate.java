@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class AbstractDaoHibernate<T> {
+public abstract class AbstractDaoHibernate<T> {
 	private static EntityManagerFactory emf;
 	protected EntityManager em;
 	private Class<T> clz;
@@ -35,7 +35,7 @@ public class AbstractDaoHibernate<T> {
 	
 	public T add(T entity) {
 		try {
-			//Démarrage de la transaction
+			//Dï¿½marrage de la transaction
 			this.em.getTransaction().begin();
 			
 			//Persister
@@ -48,7 +48,7 @@ public class AbstractDaoHibernate<T> {
 		catch (Exception ex) {
 			ex.printStackTrace();
 			
-			//On annule la requête si erreur détectée
+			//On annule la requï¿½te si erreur dï¿½tectï¿½e
 			this.em.getTransaction().rollback();
 		}
 		
@@ -57,7 +57,7 @@ public class AbstractDaoHibernate<T> {
 
 	public T update(T entity) {
 		try {
-			//Démarrage de la transaction
+			//Dï¿½marrage de la transaction
 			this.em.getTransaction().begin();
 			
 			//Sauvegarde
@@ -70,7 +70,7 @@ public class AbstractDaoHibernate<T> {
 		catch (Exception ex) {
 			ex.printStackTrace();
 			
-			//On annule la requête si erreur détectée
+			//On annule la requï¿½te si erreur dï¿½tectï¿½e
 			this.em.getTransaction().rollback();
 		}
 		
@@ -78,7 +78,7 @@ public class AbstractDaoHibernate<T> {
 	}
 
 	public boolean deleteById(int id) {
-		//Démarrage de la transaction
+		//Dï¿½marrage de la transaction
 		this.em.getTransaction().begin();
 		
 		try {

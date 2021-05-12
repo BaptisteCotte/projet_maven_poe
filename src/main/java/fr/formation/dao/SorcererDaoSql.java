@@ -13,22 +13,22 @@ import fr.formation.model.Sorcerer;
 public class SorcererDaoSql extends AbstractDaoSql implements ISorcererDao {
 
 	@Override
-	public ArrayList<Sorcerer> getAll() {
+	public ArrayList<Sorcerer> findAll() {
 
 		ArrayList<Sorcerer> sorcerers = new ArrayList<>();
 
 		try {
 
-			// Sélectionner tous les sorciers
+			// Sï¿½lectionner tous les sorciers
 			ResultSet rs = this
 					.getResult("SELECT * from sorcerer sor INNER JOIN personnage per ON sor.SOR_PER_ID = per.PER_ID");
 
 			while (rs.next()) {
 
-				// Parcourir les résultats
+				// Parcourir les rï¿½sultats
 				Sorcerer sorcerer = this.map(rs);
 
-				// Ajouter à la liste
+				// Ajouter ï¿½ la liste
 				sorcerers.add(sorcerer);
 			}
 
@@ -42,7 +42,7 @@ public class SorcererDaoSql extends AbstractDaoSql implements ISorcererDao {
 	}
 
 	@Override
-	public Optional<Sorcerer> getById(int id) {
+	public Optional<Sorcerer> findById(int id) {
 		try {
 			
 			ResultSet rs = this.getResult(
@@ -68,7 +68,7 @@ public class SorcererDaoSql extends AbstractDaoSql implements ISorcererDao {
 	}
 
 	@Override
-	public void add(Sorcerer entity) {
+	public Sorcerer add(Sorcerer entity) {
 		try {
 			
 			// Insertion du nouveau personnage 
@@ -90,15 +90,15 @@ public class SorcererDaoSql extends AbstractDaoSql implements ISorcererDao {
 			pStatement.setInt(8, entity.getBaseDmg());
 			pStatement.setBoolean(9, true);
 			
-			// Execution de la requête
+			// Execution de la requï¿½te
 			pStatement.execute();
 
-			// Récupérer son id
+			// Rï¿½cupï¿½rer son id
 			ResultSet rs = this.getResult("SELECT PER_ID from personnage ORDER BY PER_ID DESC LIMIT 1");
 
 			while (rs.next()) {
 		
-				// Définir l'id du sorcier et ses attributs
+				// Dï¿½finir l'id du sorcier et ses attributs
 				int id = rs.getInt("PER_ID");
 				entity.setId(id);
 				int mana = entity.getMana();
@@ -112,24 +112,25 @@ public class SorcererDaoSql extends AbstractDaoSql implements ISorcererDao {
 				pStatementSorcerer.setInt(2, mana);
 				pStatementSorcerer.setInt(3, maxMana);
 				
-				// Execution de la requête
+				// Execution de la requï¿½te
 				pStatementSorcerer.execute();
+				
 				
 			}
 			
-			
-			System.out.println("Sorcier " + entity.getName() + " vient de naître !");
+			System.out.println("Sorcier " + entity.getName() + " vient de naï¿½tre !");
+			return entity;
 
 		} catch (SQLException sqle) {
 
 			sqle.printStackTrace();
-
+			return null;
 		}
 
 	}
 
 	@Override
-	public void update(Sorcerer entity) {
+	public Sorcerer update(Sorcerer entity) {
 
 		StringBuilder perQuery = new StringBuilder();
 		StringBuilder sorQuery = new StringBuilder();
@@ -169,12 +170,14 @@ public class SorcererDaoSql extends AbstractDaoSql implements ISorcererDao {
 
 			pStatementSorcerer.execute();
 			
-			System.out.println("Sorcier modifié !");
+			System.out.println("Sorcier modifiï¿½ !");
+			return entity;
 
 
 		} catch (SQLException sqle) {
 
 			sqle.printStackTrace();
+			return null;
 
 		}
 
@@ -184,7 +187,7 @@ public class SorcererDaoSql extends AbstractDaoSql implements ISorcererDao {
 
 		try {
 
-			// Définir les attributs du personnage
+			// Dï¿½finir les attributs du personnage
 			int id = rs.getInt("PER_ID");
 			String name = rs.getString("PER_NOM");
 			int age = rs.getInt("PER_AGE");
@@ -196,14 +199,14 @@ public class SorcererDaoSql extends AbstractDaoSql implements ISorcererDao {
 			int baseDmg = rs.getInt("PER_BASEDMG");
 			boolean state = rs.getBoolean("PER_STATE");
 
-			// Définir les attributs du sorcier
+			// Dï¿½finir les attributs du sorcier
 			int mana = rs.getInt("SOR_MANA");
 			int maxMana = rs.getInt("SOR_MAXMANA");
 
 			// Instanciation du sorcier
 			Sorcerer sorcerer = new Sorcerer(name, age, race);
 
-			// Définir les attributs restants du personnage
+			// Dï¿½finir les attributs restants du personnage
 			sorcerer.setId(id);
 			sorcerer.setName(name);
 			sorcerer.setLvl(lvl);
@@ -213,7 +216,7 @@ public class SorcererDaoSql extends AbstractDaoSql implements ISorcererDao {
 			sorcerer.setBaseDmg(baseDmg);
 			sorcerer.setState(state);
 
-			// Retourner le sorcier créé
+			// Retourner le sorcier crï¿½ï¿½
 			return sorcerer;
 
 		} catch (SQLException e) {
