@@ -136,7 +136,6 @@ public class PriestDaoSql extends AbstractDaoSql implements IPriestDao {
 			return null;
 		}
 		
-		return priest;
 	}
 
 	@Override
@@ -176,7 +175,6 @@ public class PriestDaoSql extends AbstractDaoSql implements IPriestDao {
 			return null;
 		}
 		
-		return priest;
 
 
 	}
