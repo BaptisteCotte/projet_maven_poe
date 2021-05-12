@@ -23,7 +23,7 @@ public class Priest extends Personnage implements IHealer{
 	
 
 	public Priest() {
-			super();
+			
 		}
 
 	//Constructeur
