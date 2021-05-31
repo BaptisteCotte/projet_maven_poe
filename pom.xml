@@ -11,7 +11,7 @@
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		
+
 		<hibernate.version>5.4.31.Final</hibernate.version>
 		<hibernate-validator.version>6.1.7.Final</hibernate-validator.version>
 	</properties>
@@ -23,8 +23,8 @@
 			<version>8.0.24</version>
 			<scope>runtime</scope>
 		</dependency>
-		
-				<!-- JPA / HIBERNATE -->
+
+		<!-- JPA / HIBERNATE -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
@@ -37,6 +37,13 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>${hibernate-validator.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.2</version>
+			<scope>provided</scope>
+		</dependency>
+
 		
 		<!-- JSTL -->
 		<dependency>
