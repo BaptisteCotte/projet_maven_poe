@@ -5,6 +5,7 @@
 	<groupId>fr.formation</groupId>
 	<artifactId>projet_maven_poe</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 
 
 	<properties>
