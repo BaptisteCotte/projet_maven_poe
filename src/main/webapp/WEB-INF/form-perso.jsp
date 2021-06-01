@@ -14,7 +14,7 @@
 	<div id="ajouter" class="tabcontent">
 		<h3>Add</h3>
 		
-		<form action="" method="POST">
+		<form method="POST">
 		
 			<div>
 				<label>Name</label> <input type="text" name="name" />
