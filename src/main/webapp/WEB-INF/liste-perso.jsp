@@ -31,8 +31,8 @@
 						<td>${ personnage.age }</td>
 						<td>${ personnage.race }</td>
 						<td>
-<%-- 							<a href="modifier-fournisseur?id=<c:out value="${ fournisseur.id }" />" class="btn btn-warning">Modifier</a>
-							<a href="supprimer-fournisseur?id=${ fournisseur.id }" class="btn btn-danger">Supprimer</a> --%>
+							<a href="modifier-perso?id=<c:out value="${ personnage.id }" />" class="btn btn-warning">Modifier</a>
+							<a href="supprimer-perso?id=${ personnage.id }" class="btn btn-danger">Supprimer</a>
 						</td>
 					</tr>
 				</c:forEach>
