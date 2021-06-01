@@ -5,23 +5,24 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Personnage</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
 
 <body>
 
 
 	<!-- Tab content -->
-	<div id="ajouter" class="tabcontent">
+	<div id="ajouter">
 		<h3>Add</h3>
 		
 		<form method="POST">
 		
 			<div>
-				<label>Name</label> <input type="text" name="name" />
+				<label>Name</label> <input type="text" name="name" required/>
 			</div>
 			
 			<div>
-				<label>Age</label> <input type="number" name="age" />
+				<label>Age</label> <input type="number" name="age" required/>
 			</div>
 			
 			<div>
@@ -31,16 +32,16 @@
 					<label for="HUMAN">Human</label>
 				</div>
 				<div>
-					<input type="radio" id="DWARF" name="race" value="DWARF"> <label
-						for="DWARF">Dwarf</label>
+					<input type="radio" id="DWARF" name="race" value="DWARF"> 
+					<label for="DWARF">Dwarf</label>
 				</div>
 				<div>
-					<input type="radio" id="ELF" name="race" value="ELF"> <label
-						for="ELF">Elf</label>
+					<input type="radio" id="ELF" name="race" value="ELF"> 
+					<label for="ELF">Elf</label>
 				</div>
 				<div>
-					<input type="radio" id="ORC" name="race" value="ORC"> <label
-						for="ORC">Orc</label>
+					<input type="radio" id="ORC" name="race" value="ORC"> 
+					<label for="ORC">Orc</label>
 				</div>
 
 			</div>
@@ -48,8 +49,8 @@
 			<div>
 				<label>Class</label>
 				<div>
-					<input type="radio" id="knight" name="classe" value="knight"
-						checked> <label for="knight">Knight</label>
+					<input type="radio" id="knight" name="classe" value="knight" checked> 
+					<label for="knight">Knight</label>
 				</div>
 				<div>
 					<input type="radio" id="sorcerer" name="classe" value="sorcerer">

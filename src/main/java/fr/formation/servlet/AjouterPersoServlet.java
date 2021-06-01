@@ -34,19 +34,23 @@ public class AjouterPersoServlet extends HttpServlet{
 		
 		Personnage perso = null;
 		
-		if(classe.equals("knight")) {
-			perso = new Knight(name,age,race);
-		}else if(classe.equals("sorcerer")) {
-			perso = new Sorcerer(name,age,race);
-		}else if(classe.equals("priest")) {
-			perso = new Priest(name,age,race);
+		if(!name.equals("")) {
+			if(classe.equals("knight")) {
+				perso = new Knight(name,age,race);
+			}else if(classe.equals("sorcerer")) {
+				perso = new Sorcerer(name,age,race);
+			}else if(classe.equals("priest")) {
+				perso = new Priest(name,age,race);
+			}
+			
+			System.out.println(perso);
+			
+			PersonnageService ps = new PersonnageService();
+			ps.add(perso);
+			
+			resp.sendRedirect("liste-perso");
+		}else {
+			resp.sendRedirect("form-perso");
 		}
-		
-		System.out.println(perso);
-		
-		PersonnageService ps = new PersonnageService();
-		ps.add(perso);
-		
-		resp.sendRedirect("liste-perso");
 	}
 }
