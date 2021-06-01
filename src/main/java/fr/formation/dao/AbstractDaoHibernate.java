@@ -15,6 +15,14 @@ public abstract class AbstractDaoHibernate<T> {
 	public AbstractDaoHibernate(Class<T> clz) {
 		this.clz = clz;
 		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		}
+		
+		catch (ClassNotFoundException cnex) {
+			System.out.println("Chargement du pilote JDBC impossible ...");
+		}
+		
 		if (emf == null) {
 			emf = Persistence.createEntityManagerFactory("BddProjetUnit");
 		}
@@ -32,7 +40,7 @@ public abstract class AbstractDaoHibernate<T> {
 			this.em.find(this.clz, id)
 		);
 	}
-	
+
 	public T add(T entity) {
 		try {
 			//D�marrage de la transaction

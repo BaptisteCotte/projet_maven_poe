@@ -32,5 +32,4 @@ public class PersonnageService {
 		return this.pdh.update(entity);
 	}
 	
-	
 }

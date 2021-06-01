@@ -10,6 +10,7 @@
 		<class>fr.formation.model.Priest</class>
 		<class>fr.formation.model.Sorcerer</class>
 		<class>fr.formation.model.Knight</class>
+<!-- 		<class>fr.formation.model.Equipe</class> -->
 
 		<properties>
 			<property name="hibernate.connection.url"
