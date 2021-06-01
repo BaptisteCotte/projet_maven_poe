@@ -9,14 +9,14 @@
 <body>
 	<form method="POST">
 
-		<div>
+		<div class="md-form">
 			<label>Name</label> <input type="text" name="name"
-				value="${ personnage.name }" />
+				value="${ personnage.name }" required/>
 		</div>
 
 		<div>
 			<label>Age</label> <input type="number" name="age"
-				value="${ personnage.age }" />
+				value="${ personnage.age }" required/>
 		</div>
 		<div>
 			<input type="submit" value="Edit" />

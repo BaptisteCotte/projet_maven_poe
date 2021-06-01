@@ -10,7 +10,7 @@
 <title>Liste des personnages</title>
 </head>
 <body>
-
+	<a href="form-perso">Ajouter</a>
 <div>
 		<table>
 			<thead>
