@@ -32,4 +32,10 @@ public class PersonnageService {
 		return this.pdh.update(entity);
 	}
 	
+	public void deleteById(int id) {
+		
+		this.pdh.deleteById(id);
+		
+	}
+	
 }
