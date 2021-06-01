@@ -91,7 +91,7 @@ public abstract class AbstractDaoHibernate<T> {
 		
 		try {
 			this.em.remove(
-				this.findById(id)
+				this.findById(id).get()
 			);
 
 			//Commit de la transaction
