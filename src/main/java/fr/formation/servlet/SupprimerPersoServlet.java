@@ -24,7 +24,6 @@ public class SupprimerPersoServlet extends HttpServlet {
 		
 		resp.sendRedirect("liste-perso");
 		
-	
 	}
 
 }
