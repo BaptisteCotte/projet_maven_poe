@@ -18,7 +18,7 @@
 		<form method="POST">
 		
 			<div>
-				<label>Name</label> <input type="text" name="name" required/>
+				<label>Name</label> <input type="text" name="name" pattern="^[A-Z]+([a-z]{1,}[\-]{0,1}){0,}[a-z]$" required/>
 			</div>
 			
 			<div>
