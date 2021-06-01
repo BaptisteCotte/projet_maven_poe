@@ -11,12 +11,14 @@
 
 		<div class="md-form">
 			<label>Name</label> <input type="text" name="name"
-				value="${ personnage.name }" required/>
+				value="${ personnage.name }" pattern="[A-Z]+[\-]{0,1}([a-z]{1,}[\-]{0,1}){0,}[a-z]$" required/>
+				<p>Le nom du personnage doit commencer par une minuscule. Il peut contenir des '-' mais ne pas contenir de chiffres, ni d'espaces.</p>
 		</div>
 
 		<div>
-			<label>Age</label> <input type="number" name="age"
-				value="${ personnage.age }" required/>
+			<label>Age</label> <input type="text" name="age"
+				value="${ personnage.age }" pattern="^[\d]{0,}$" required/>
+				<p>L'age du personnage ne peut-etre negatif.</p>
 		</div>
 		<div>
 			<input type="submit" value="Edit" />
