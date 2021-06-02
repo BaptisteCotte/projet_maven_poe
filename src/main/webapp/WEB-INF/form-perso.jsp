@@ -22,8 +22,8 @@
 		<form method="POST">
 
 			<div>
-				<label>Name</label> <input type="text" name="name"
-					pattern="^[A-Z]+[\-]{0,1}([a-z]{1,}[\-]{0,1}){0,}[a-z]$" required />
+				<label>Name</label> <input type="text" name="name" pattern="^[A-Z]+[\-]{0,1}([a-z]{1,}[\-]{0,1}){0,}[a-z]$" required/>
+				<p>Doit commencer par une majuscule, finir par une minuscule et peut contenir des "-".</p>
 			</div>
 
 			<div>
