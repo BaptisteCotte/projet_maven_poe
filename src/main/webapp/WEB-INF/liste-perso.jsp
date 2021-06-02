@@ -8,6 +8,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Liste des personnages</title>
+<link rel="stylesheet" href="/css/form-modifier.css" />
 </head>
 <body>
 	<a href="form-perso">Ajouter</a>
