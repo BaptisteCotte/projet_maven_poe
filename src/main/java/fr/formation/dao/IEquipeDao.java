@@ -1,5 +1,7 @@
 package fr.formation.dao;
 
-public interface IEquipeDao {
+import fr.formation.model.Equipe;
+
+public interface IEquipeDao extends IDao<Equipe> {
 
 }
