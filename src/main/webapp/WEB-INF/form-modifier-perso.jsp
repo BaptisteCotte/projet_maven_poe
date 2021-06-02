@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Edit Character</title>
-<link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+<link href="./assets/css/styleForm.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div class="container">
@@ -30,10 +30,17 @@
 						<p>L'age du personnage ne peut-etre negatif.</p>
 					</div>
 
-					<div class="svg-wrapper">
+					<div>
+
 						</br> </br>
+
+
+
 						<button class="btn" type="submit" value="Edit">Submit</button>
 					</div>
+
+
+
 
 				</div>
 			</form>

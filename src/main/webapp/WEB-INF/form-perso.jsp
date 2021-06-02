@@ -5,74 +5,69 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Personnage</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
-	crossorigin="anonymous">
+<link href="./assets/css/styleForm.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
 
 	<!-- Tab content -->
-	<div id="ajouter">
-		<h3>Add</h3>
+	<div id="ajouter" class="container">
+		<div class="leftbox"></div>
 
-		<form method="POST">
+		<div class="rightbox">
+			<form method="POST">
+				<div class="profile">
+					<h1>Add Character</h1>
+					<div>
+						<label>Name</label> <input type="text" name="name"
+							pattern="^[A-Z]+[\-]{0,1}([a-z]{1,}[\-]{0,1}){0,}[a-z]$" required />
+						<p>Doit commencer par une majuscule, finir par une minuscule
+							et peut contenir <br>des "-".</p>
+					</div>
 
-			<div>
-				<label>Name</label> <input type="text" name="name" pattern="^[A-Z]+[\-]{0,1}([a-z]{1,}[\-]{0,1}){0,}[a-z]$" required/>
-				<p>Doit commencer par une majuscule, finir par une minuscule et peut contenir des "-".</p>
-			</div>
+					<div>
+						<label>Age</label> <input type="text" name="age"
+							pattern="^[\d]{0,}$" required />
+						<p>Nombres positifs uniquement.</p>
+					</div>
 
-			<div>
-				<label>Age</label> <input type="text" name="age" pattern="^[\d]{0,}$" required/>
-				<p>Nombres positifs uniquement.</p>
-			</div>
+					<div>
+						<br>
+						<label>Race</label>
+						<div>
+							<label for="HUMAN" class="l-radio"> <input type="radio"
+								id="HUMAN" name="race" value="HUMAN" checked> <span>Human</span>
+							</label> <label for="DWARF" class="l-radio"> <input type="radio"
+								id="DWARF" class="l-radio" name="race" value="DWARF"> <span>Dwarf</span>
+							</label> <label for="ELF" class="l-radio"> <input type="radio"
+								id="ELF" class="l-radio" name="race" value="ELF"> <span>Elf</span>
+							</label> <label for="ORC" class="l-radio"> <input type="radio"
+								id="ORC" class="l-radio" name="race" value="ORC"> <span>Orc</span>
+							</label>
+						</div>
 
-			<div>
-				<label>Race</label>
-				<div>
-					<input type="radio" id="HUMAN" name="race" value="HUMAN" checked>
-					<label for="HUMAN">Human</label>
-				</div>
-				<div>
-					<input type="radio" id="DWARF" name="race" value="DWARF"> <label
-						for="DWARF">Dwarf</label>
-				</div>
-				<div>
-					<input type="radio" id="ELF" name="race" value="ELF"> <label
-						for="ELF">Elf</label>
-				</div>
-				<div>
-					<input type="radio" id="ORC" name="race" value="ORC"> <label
-						for="ORC">Orc</label>
-				</div>
+					</div>
 
-			</div>
+					<div>
+						<br>
+						<label>Class</label>
+						<div>
+							<label for="knight" class="l-radio"> <input type="radio"
+								id="knight" name="classe" value="knight" checked><span>
+									Knight</span></label> <label for="sorcerer" class="l-radio"> <input
+								type="radio" id="sorcerer" name="classe" value="sorcerer">
+								<span>Sorcerer</span></label> <label for="priest" class="l-radio">
+								<input type="radio" id="priest" name="classe" value="priest">
+								<span>Priest</span>
+							</label>
+						</div>
 
-			<div>
-				<label>Class</label>
-				<div>
-					<input type="radio" id="knight" name="classe" value="knight"
-						checked> <label for="knight">Knight</label>
-				</div>
-				<div>
-					<input type="radio" id="sorcerer" name="classe" value="sorcerer">
-					<label for="sorcerer">Sorcerer</label>
-				</div>
-				<div>
-					<input type="radio" id="priest" name="classe" value="priest">
-					<label for="priest">Priest</label>
-				</div>
-
-			</div>
-			<div>
-				<button type="submit">submit</button>
-			</div>
-		</form>
-	</div>
-
+					</div>
+					<div>
+						<br><br> <button class="btn" type="submit" value="Edit">Submit</button>
+					</div>
+			</form>
+		</div>
 </body>
 </html>
