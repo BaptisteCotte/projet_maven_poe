@@ -27,6 +27,15 @@ private EquipeDaoSql eds = new EquipeDaoSql();
 		return this.eds.add(entity);
 	}
 	
+	public Equipe addWithCharacters(Equipe entity) {
+		PersonnageService ps = new PersonnageService();
+		entity.getEquipe().set(0,ps.add(entity.getEquipe().get(0)));
+		entity.getEquipe().set(1,ps.add(entity.getEquipe().get(1)));
+		entity.getEquipe().set(2,ps.add(entity.getEquipe().get(2)));
+		entity = this.add(entity);
+		return entity;
+	}
+	
 	public void deleteById(int id) {
 		
 		this.eds.deleteById(id);
