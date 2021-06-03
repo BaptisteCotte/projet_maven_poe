@@ -48,7 +48,7 @@ public class AjouterPersoServlet extends HttpServlet{
 			PersonnageService ps = new PersonnageService();
 			ps.add(perso);
 			
-			resp.sendRedirect("liste-perso");
+			resp.sendRedirect("liste-perso?persoAjout=true");
 		}else {
 			resp.sendRedirect("form-perso");
 		}

@@ -46,7 +46,7 @@ public class ModifierPersoServlet extends HttpServlet{
 		
 		servicePerso.update(perso);
 		
-		resp.sendRedirect("liste-perso");
+		resp.sendRedirect("liste-perso?persoModifie=true");
 		
 		
 	}

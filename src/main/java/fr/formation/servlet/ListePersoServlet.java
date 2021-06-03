@@ -32,6 +32,9 @@ public class ListePersoServlet extends HttpServlet{
 		.getRequestDispatcher("/WEB-INF/liste-perso.jsp")
 		.forward(req, resp);
 		
+		req.getSession().setAttribute("persoAjout", null);
+		req.getSession().setAttribute("persoModifie", null);
+		
 	}
 
 }
